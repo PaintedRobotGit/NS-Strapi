@@ -6,7 +6,17 @@ export default [
   'strapi::poweredBy',
   'strapi::query',
   'strapi::body',
-  'strapi::session',
+  {
+    name: 'strapi::session',
+    config: {
+      // Configure session cookies to work with secure connections
+      cookie: {
+        secure: process.env.NODE_ENV === 'production',
+        httpOnly: true,
+        sameSite: 'lax',
+      },
+    },
+  },
   'strapi::favicon',
   'strapi::public',
 ];
