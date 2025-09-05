@@ -5,9 +5,5 @@ export default ({ env }) => ({
     keys: env.array('APP_KEYS'),
   },
   url: env('URL'),
-  proxy: true,
-  // Trust proxy headers for secure cookie handling
-  trustProxy: true,
-  // Ensure secure cookies work behind proxy
-  secure: env.bool('NODE_ENV') === 'production',
+  proxy: true
 });

@@ -2,12 +2,6 @@ export default ({ env }) => ({
     'users-permissions': {
         config: {
             jwtSecret: env('JWT_SECRET'),
-            // Configure secure cookies for OAuth providers
-            cookie: {
-                secure: env.bool('NODE_ENV') === 'production',
-                httpOnly: true,
-                sameSite: 'lax',
-            },
         },
     },
     upload: {
