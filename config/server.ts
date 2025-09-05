@@ -4,7 +4,7 @@ export default ({ env }) => ({
   app: {
     keys: env.array('APP_KEYS'),
   },
-  url: env('URL'),
+  url: env('NODE_ENV') === 'development' ? 'http://127.0.0.1:1337' : env('URL'),
   proxy: {
     koa: true
   },

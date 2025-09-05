@@ -84,6 +84,12 @@
       "relation": "manyToOne",
       "target": "api::position.position",
       "inversedBy": "users"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
     }
   }
 }
