@@ -895,6 +895,11 @@ export interface PluginUsersPermissionsUser
     draftAndPublish: false;
   };
   attributes: {
+    addressCity: Schema.Attribute.String;
+    addressCountry: Schema.Attribute.String;
+    addressState: Schema.Attribute.String;
+    addressStreet: Schema.Attribute.String;
+    addressZipCode: Schema.Attribute.String;
     blocked: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     company: Schema.Attribute.Relation<'manyToOne', 'api::company.company'>;
     confirmationToken: Schema.Attribute.String & Schema.Attribute.Private;
@@ -908,7 +913,10 @@ export interface PluginUsersPermissionsUser
         minLength: 6;
       }>;
     firstName: Schema.Attribute.String;
+    githubUrl: Schema.Attribute.String;
+    jobTitle: Schema.Attribute.String;
     lastName: Schema.Attribute.String;
+    linkedinUrl: Schema.Attribute.String;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -921,6 +929,8 @@ export interface PluginUsersPermissionsUser
         minLength: 6;
       }>;
     permission: Schema.Attribute.Enumeration<['owner', 'admin', 'user']>;
+    personalWebsite: Schema.Attribute.String;
+    phoneNumber: Schema.Attribute.String;
     position: Schema.Attribute.Relation<'manyToOne', 'api::position.position'>;
     provider: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
@@ -929,6 +939,7 @@ export interface PluginUsersPermissionsUser
       'manyToOne',
       'plugin::users-permissions.role'
     >;
+    twitterUrl: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

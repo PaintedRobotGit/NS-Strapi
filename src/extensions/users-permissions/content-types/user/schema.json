@@ -90,6 +90,39 @@
     },
     "lastName": {
       "type": "string"
+    },
+    "jobTitle": {
+      "type": "string"
+    },
+    "phoneNumber": {
+      "type": "string"
+    },
+    "addressStreet": {
+      "type": "string"
+    },
+    "addressCity": {
+      "type": "string"
+    },
+    "addressState": {
+      "type": "string"
+    },
+    "addressZipCode": {
+      "type": "string"
+    },
+    "addressCountry": {
+      "type": "string"
+    },
+    "personalWebsite": {
+      "type": "string"
+    },
+    "linkedinUrl": {
+      "type": "string"
+    },
+    "twitterUrl": {
+      "type": "string"
+    },
+    "githubUrl": {
+      "type": "string"
     }
   }
 }
