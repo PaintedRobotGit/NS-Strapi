@@ -372,12 +372,13 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiCompanyCompany extends Struct.CollectionTypeSchema {
   collectionName: 'companies';
   info: {
+    description: '';
     displayName: 'Company';
     pluralName: 'companies';
     singularName: 'company';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     createdAt: Schema.Attribute.DateTime;
@@ -392,6 +393,7 @@ export interface ApiCompanyCompany extends Struct.CollectionTypeSchema {
     name: Schema.Attribute.String;
     positions: Schema.Attribute.Relation<'oneToMany', 'api::position.position'>;
     publishedAt: Schema.Attribute.DateTime;
+    slug: Schema.Attribute.UID;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -405,12 +407,13 @@ export interface ApiCompanyCompany extends Struct.CollectionTypeSchema {
 export interface ApiPositionPosition extends Struct.CollectionTypeSchema {
   collectionName: 'positions';
   info: {
+    description: '';
     displayName: 'Position';
     pluralName: 'positions';
     singularName: 'position';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     company: Schema.Attribute.Relation<'manyToOne', 'api::company.company'>;

@@ -4,10 +4,11 @@
   "info": {
     "singularName": "company",
     "pluralName": "companies",
-    "displayName": "Company"
+    "displayName": "Company",
+    "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "attributes": {
     "name": {
@@ -24,6 +25,9 @@
       "relation": "oneToMany",
       "target": "api::position.position",
       "mappedBy": "company"
+    },
+    "slug": {
+      "type": "uid"
     }
   }
 }
