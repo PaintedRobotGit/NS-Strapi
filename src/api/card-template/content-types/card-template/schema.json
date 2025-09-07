@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "card_templates",
+  "info": {
+    "singularName": "card-template",
+    "pluralName": "card-templates",
+    "displayName": "Card Template"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "templateId": {
+      "type": "uid"
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text"
+    },
+    "category": {
+      "type": "string",
+      "required": true
+    },
+    "variants": {
+      "type": "json"
+    },
+    "tags": {
+      "type": "json"
+    },
+    "accessLevel": {
+      "type": "enumeration",
+      "enum": [
+        "public",
+        "premium"
+      ]
+    },
+    "isActive": {
+      "type": "boolean"
+    }
+  }
+}

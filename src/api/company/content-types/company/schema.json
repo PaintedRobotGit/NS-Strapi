@@ -40,6 +40,19 @@
     },
     "website": {
       "type": "string"
+    },
+    "logo": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true
+    },
+    "subscription": {
+      "type": "json"
     }
   }
 }
