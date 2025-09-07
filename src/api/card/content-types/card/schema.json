@@ -4,7 +4,8 @@
   "info": {
     "singularName": "card",
     "pluralName": "cards",
-    "displayName": "card"
+    "displayName": "card",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -32,6 +33,15 @@
       "type": "string"
     },
     "variant": {
+      "type": "string"
+    },
+    "fieldMapping": {
+      "type": "json"
+    },
+    "analytics": {
+      "type": "json"
+    },
+    "name": {
       "type": "string"
     }
   }

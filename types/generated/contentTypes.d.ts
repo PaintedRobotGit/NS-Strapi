@@ -372,6 +372,7 @@ export interface AdminUser extends Struct.CollectionTypeSchema {
 export interface ApiCardCard extends Struct.CollectionTypeSchema {
   collectionName: 'cards';
   info: {
+    description: '';
     displayName: 'card';
     pluralName: 'cards';
     singularName: 'card';
@@ -381,13 +382,16 @@ export interface ApiCardCard extends Struct.CollectionTypeSchema {
   };
   attributes: {
     active: Schema.Attribute.Boolean;
+    analytics: Schema.Attribute.JSON;
     company: Schema.Attribute.Relation<'manyToOne', 'api::company.company'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    fieldMapping: Schema.Attribute.JSON;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::card.card'> &
       Schema.Attribute.Private;
+    name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID;
     template: Schema.Attribute.String;
@@ -427,6 +431,7 @@ export interface ApiCompanyCompany extends Struct.CollectionTypeSchema {
     name: Schema.Attribute.String;
     positions: Schema.Attribute.Relation<'oneToMany', 'api::position.position'>;
     publishedAt: Schema.Attribute.DateTime;
+    settings: Schema.Attribute.JSON;
     slug: Schema.Attribute.UID;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -435,6 +440,7 @@ export interface ApiCompanyCompany extends Struct.CollectionTypeSchema {
       'oneToMany',
       'plugin::users-permissions.user'
     >;
+    website: Schema.Attribute.String;
   };
 }
 

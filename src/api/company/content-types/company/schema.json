@@ -34,6 +34,12 @@
       "relation": "oneToMany",
       "target": "api::card.card",
       "mappedBy": "company"
+    },
+    "settings": {
+      "type": "json"
+    },
+    "website": {
+      "type": "string"
     }
   }
 }
