@@ -4,10 +4,11 @@
   "info": {
     "singularName": "card-template",
     "pluralName": "card-templates",
-    "displayName": "Card Template"
+    "displayName": "Card Template",
+    "description": ""
   },
   "options": {
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "attributes": {
     "templateId": {

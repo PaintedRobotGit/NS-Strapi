@@ -373,12 +373,13 @@ export interface ApiCardTemplateCardTemplate
   extends Struct.CollectionTypeSchema {
   collectionName: 'card_templates';
   info: {
+    description: '';
     displayName: 'Card Template';
     pluralName: 'card-templates';
     singularName: 'card-template';
   };
   options: {
-    draftAndPublish: true;
+    draftAndPublish: false;
   };
   attributes: {
     accessLevel: Schema.Attribute.Enumeration<['public', 'premium']>;
