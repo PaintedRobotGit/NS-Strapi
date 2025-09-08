@@ -42,17 +42,21 @@
       "type": "string"
     },
     "logo": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
     },
     "subscription": {
       "type": "json"
+    },
+    "inviteCode": {
+      "type": "string"
     }
   }
 }

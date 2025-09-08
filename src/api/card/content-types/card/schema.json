@@ -46,6 +46,12 @@
       "relation": "manyToOne",
       "target": "api::card-template.card-template",
       "inversedBy": "cards"
+    },
+    "analyticsEvents": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::analytics-event.analytics-event",
+      "mappedBy": "card"
     }
   }
 }
