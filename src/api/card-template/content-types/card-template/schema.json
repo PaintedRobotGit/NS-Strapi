@@ -12,24 +12,28 @@
   },
   "attributes": {
     "templateId": {
-      "type": "uid"
+      "type": "uid",
+      "required": true
     },
     "name": {
       "type": "string",
       "required": true
     },
     "description": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "category": {
       "type": "string",
       "required": true
     },
     "variants": {
-      "type": "json"
+      "type": "json",
+      "required": true
     },
     "tags": {
-      "type": "json"
+      "type": "json",
+      "required": true
     },
     "accessLevel": {
       "type": "enumeration",

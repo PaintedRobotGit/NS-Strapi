@@ -387,7 +387,7 @@ export interface ApiCardTemplateCardTemplate
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    description: Schema.Attribute.Text;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
     isActive: Schema.Attribute.Boolean;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
@@ -397,12 +397,12 @@ export interface ApiCardTemplateCardTemplate
       Schema.Attribute.Private;
     name: Schema.Attribute.String & Schema.Attribute.Required;
     publishedAt: Schema.Attribute.DateTime;
-    tags: Schema.Attribute.JSON;
-    templateId: Schema.Attribute.UID;
+    tags: Schema.Attribute.JSON & Schema.Attribute.Required;
+    templateId: Schema.Attribute.UID & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    variants: Schema.Attribute.JSON;
+    variants: Schema.Attribute.JSON & Schema.Attribute.Required;
   };
 }
 
