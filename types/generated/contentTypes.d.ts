@@ -383,6 +383,7 @@ export interface ApiCardTemplateCardTemplate
   };
   attributes: {
     accessLevel: Schema.Attribute.Enumeration<['public', 'premium']>;
+    cards: Schema.Attribute.Relation<'oneToMany', 'api::card.card'>;
     category: Schema.Attribute.String & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -431,7 +432,10 @@ export interface ApiCardCard extends Struct.CollectionTypeSchema {
     name: Schema.Attribute.String;
     publishedAt: Schema.Attribute.DateTime;
     slug: Schema.Attribute.UID;
-    template: Schema.Attribute.String;
+    template: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::card-template.card-template'
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

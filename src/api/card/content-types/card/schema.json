@@ -29,9 +29,6 @@
     "active": {
       "type": "boolean"
     },
-    "template": {
-      "type": "string"
-    },
     "variant": {
       "type": "string"
     },
@@ -43,6 +40,12 @@
     },
     "name": {
       "type": "string"
+    },
+    "template": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::card-template.card-template",
+      "inversedBy": "cards"
     }
   }
 }

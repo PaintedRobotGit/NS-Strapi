@@ -44,6 +44,12 @@
     },
     "isActive": {
       "type": "boolean"
+    },
+    "cards": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::card.card",
+      "mappedBy": "template"
     }
   }
 }
