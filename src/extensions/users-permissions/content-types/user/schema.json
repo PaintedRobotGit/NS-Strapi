@@ -132,6 +132,9 @@
     },
     "bio": {
       "type": "text"
+    },
+    "facebookUrl": {
+      "type": "string"
     }
   }
 }

@@ -1054,6 +1054,7 @@ export interface PluginUsersPermissionsUser
       Schema.Attribute.SetMinMaxLength<{
         minLength: 6;
       }>;
+    facebookUrl: Schema.Attribute.String;
     firstName: Schema.Attribute.String;
     githubUrl: Schema.Attribute.String;
     jobTitle: Schema.Attribute.String;
