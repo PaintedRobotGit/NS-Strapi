@@ -129,6 +129,9 @@
       "relation": "oneToMany",
       "target": "api::card.card",
       "mappedBy": "user"
+    },
+    "bio": {
+      "type": "text"
     }
   }
 }

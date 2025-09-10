@@ -1040,6 +1040,7 @@ export interface PluginUsersPermissionsUser
     addressState: Schema.Attribute.String;
     addressStreet: Schema.Attribute.String;
     addressZipCode: Schema.Attribute.String;
+    bio: Schema.Attribute.Text;
     blocked: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     cards: Schema.Attribute.Relation<'oneToMany', 'api::card.card'>;
     company: Schema.Attribute.Relation<'manyToOne', 'api::company.company'>;
