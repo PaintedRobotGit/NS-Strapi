@@ -500,6 +500,55 @@ export interface ApiCardCard extends Struct.CollectionTypeSchema {
   };
 }
 
+export interface ApiCompanyInviteLinkCompanyInviteLink
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'company_invite_links';
+  info: {
+    displayName: 'Company Invite Link';
+    pluralName: 'company-invite-links';
+    singularName: 'company-invite-link';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    acceptedAt: Schema.Attribute.DateTime;
+    acceptedBy: Schema.Attribute.Relation<
+      'oneToMany',
+      'plugin::users-permissions.user'
+    >;
+    code: Schema.Attribute.UID &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 32;
+      }>;
+    codeStatus: Schema.Attribute.Enumeration<
+      ['pending', 'accepted', 'expired', 'revoked']
+    > &
+      Schema.Attribute.DefaultTo<'pending'>;
+    company: Schema.Attribute.Relation<'manyToOne', 'api::company.company'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    email: Schema.Attribute.Email & Schema.Attribute.Required;
+    expiresAt: Schema.Attribute.DateTime;
+    invitedBy: Schema.Attribute.Relation<
+      'manyToOne',
+      'plugin::users-permissions.user'
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::company-invite-link.company-invite-link'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiCompanyCompany extends Struct.CollectionTypeSchema {
   collectionName: 'companies';
   info: {
@@ -513,6 +562,10 @@ export interface ApiCompanyCompany extends Struct.CollectionTypeSchema {
   };
   attributes: {
     cards: Schema.Attribute.Relation<'oneToMany', 'api::card.card'>;
+    company_invite_links: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::company-invite-link.company-invite-link'
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1044,6 +1097,10 @@ export interface PluginUsersPermissionsUser
     blocked: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     cards: Schema.Attribute.Relation<'oneToMany', 'api::card.card'>;
     company: Schema.Attribute.Relation<'manyToOne', 'api::company.company'>;
+    company_invite_link: Schema.Attribute.Relation<
+      'manyToOne',
+      'api::company-invite-link.company-invite-link'
+    >;
     confirmationToken: Schema.Attribute.String & Schema.Attribute.Private;
     confirmed: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     createdAt: Schema.Attribute.DateTime;
@@ -1057,6 +1114,10 @@ export interface PluginUsersPermissionsUser
     facebookUrl: Schema.Attribute.String;
     firstName: Schema.Attribute.String;
     githubUrl: Schema.Attribute.String;
+    invited: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::company-invite-link.company-invite-link'
+    >;
     jobTitle: Schema.Attribute.String;
     lastName: Schema.Attribute.String;
     linkedinUrl: Schema.Attribute.String;
@@ -1108,6 +1169,7 @@ declare module '@strapi/strapi' {
       'api::analytics-event.analytics-event': ApiAnalyticsEventAnalyticsEvent;
       'api::card-template.card-template': ApiCardTemplateCardTemplate;
       'api::card.card': ApiCardCard;
+      'api::company-invite-link.company-invite-link': ApiCompanyInviteLinkCompanyInviteLink;
       'api::company.company': ApiCompanyCompany;
       'api::position.position': ApiPositionPosition;
       'plugin::content-releases.release': PluginContentReleasesRelease;

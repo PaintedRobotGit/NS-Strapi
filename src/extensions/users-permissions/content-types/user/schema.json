@@ -135,6 +135,18 @@
     },
     "facebookUrl": {
       "type": "string"
+    },
+    "invited": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::company-invite-link.company-invite-link",
+      "mappedBy": "invitedBy"
+    },
+    "company_invite_link": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::company-invite-link.company-invite-link",
+      "inversedBy": "acceptedBy"
     }
   }
 }

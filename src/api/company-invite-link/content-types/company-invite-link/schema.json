@@ -1,0 +1,57 @@
+{
+  "kind": "collectionType",
+  "collectionName": "company_invite_links",
+  "info": {
+    "singularName": "company-invite-link",
+    "pluralName": "company-invite-links",
+    "displayName": "Company Invite Link"
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "code": {
+      "type": "uid",
+      "required": true,
+      "maxLength": 32
+    },
+    "email": {
+      "type": "email",
+      "required": true
+    },
+    "company": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::company.company",
+      "inversedBy": "company_invite_links"
+    },
+    "invitedBy": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "invited"
+    },
+    "codeStatus": {
+      "type": "enumeration",
+      "enum": [
+        "pending",
+        "accepted",
+        "expired",
+        "revoked"
+      ],
+      "default": "pending"
+    },
+    "expiresAt": {
+      "type": "datetime"
+    },
+    "acceptedAt": {
+      "type": "datetime"
+    },
+    "acceptedBy": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "plugin::users-permissions.user",
+      "mappedBy": "company_invite_link"
+    }
+  }
+}
